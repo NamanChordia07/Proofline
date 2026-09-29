@@ -22,9 +22,9 @@
     "unverifiable->unverifiable": 8
   },
   "latency_ms": {
-    "p50": 0.506,
-    "p95": 1.179,
-    "max": 5.435
+    "p50": 0.444,
+    "p95": 1.616,
+    "max": 7.611
   },
   "categories": {
     "absolute_numbers": {
