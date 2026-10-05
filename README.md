@@ -2,6 +2,16 @@
 
 **Every number an LLM writes into a business report, checked against the data before anyone reads it.**
 
+[![CI](https://github.com/NamanChordia07/Proofline/actions/workflows/ci.yml/badge.svg)](https://github.com/NamanChordia07/Proofline/actions/workflows/ci.yml)
+![Python 3.11 to 3.13](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-3776AB?logo=python&logoColor=white)
+![mypy strict](https://img.shields.io/badge/mypy-strict-2a6db2)
+![coverage 95%](https://img.shields.io/badge/coverage-95%25-2ea44f)
+![zero runtime dependencies](https://img.shields.io/badge/runtime%20deps-0-555)
+[![License: MIT](https://img.shields.io/badge/license-MIT-555)](LICENSE)
+
+**[Case study and live demo](https://namanchordia.vercel.app/work/proofline)** ·
+[Benchmark](docs/BENCHMARK.md) · [Design](docs/DESIGN.md) · [Quick start](#quick-start)
+
 LLMs are good at writing weekly performance commentary and bad at keeping the numbers
 straight. The failures are rarely invented digits. They are *real numbers in the wrong
 place*: last year's change reported against budget, one property's ADR attributed to
@@ -103,10 +113,20 @@ no numbers are claimed here until that has been run.
 
 Design rationale and trade-offs: [docs/DESIGN.md](docs/DESIGN.md).
 
+## Quick start
+
+```bash
+git clone https://github.com/NamanChordia07/Proofline.git && cd Proofline
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[yaml]"          # the core has no runtime dependencies
+proofline demo                    # verify and repair a sample hotel report
+```
+
+Or install straight from GitHub: `pip install "proofline[yaml] @ git+https://github.com/NamanChordia07/Proofline.git"`.
+
 ## Use it
 
 ```bash
-pip install -e ".[yaml]"          # the core has no runtime dependencies
 
 proofline facts  --data examples/hotel_weekly/data.csv --spec examples/hotel_weekly/spec.yaml -o facts.json
 proofline verify --facts facts.json examples/hotel_weekly/report.md --html report.html   # exit 1 if contradicted
@@ -160,9 +180,13 @@ client. Tools: `compute_facts`, `facts_brief`, `verify_narrative`, `repair_narra
 
 - [docs/DESIGN.md](docs/DESIGN.md): design and trade-offs
 - [docs/BENCHMARK.md](docs/BENCHMARK.md): method, protocol, all results including first runs
-- [docs/demo/](docs/demo/index.html): static demo, generated from real verifier output
+- [docs/demo/](docs/demo/index.html): static demo pages, generated from real verifier output (also embedded in the [case study](https://namanchordia.vercel.app/work/proofline#demo))
 - [ROADMAP.md](ROADMAP.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Author
+
+Built by [Naman Chordia](https://namanchordia.vercel.app) ([LinkedIn](https://www.linkedin.com/in/naman-chordia-291b7a22a/)). Issues and pull requests are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-MIT
+[MIT](LICENSE)

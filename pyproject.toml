@@ -12,6 +12,12 @@ license = { text = "MIT" }
 authors = [{ name = "Naman Chordia" }]
 dependencies = []  # the verifier is pure standard library
 
+[project.urls]
+Homepage = "https://namanchordia.vercel.app/work/proofline"
+Repository = "https://github.com/NamanChordia07/Proofline"
+Issues = "https://github.com/NamanChordia07/Proofline/issues"
+Changelog = "https://github.com/NamanChordia07/Proofline/blob/main/CHANGELOG.md"
+
 [project.optional-dependencies]
 yaml = ["pyyaml>=6"]
 gemini = ["google-genai>=1.0"]
